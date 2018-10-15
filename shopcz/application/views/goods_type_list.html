@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SHOP 管理中心 - 类型管理 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="<?php echo base_url('styles/general.css');?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('styles/main.css');?>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="<?php echo site_url('admin/goodstype/add')?>">新建商品类型</a></span>
+<span class="action-span1"><a href="index.php?act=main">SHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 商品类型 </span>
+<div style="clear:both"></div>
+</h1>
+
+<form method="post" action="" name="listForm">
+<!-- start goods type list -->
+<div class="list-div" id="listDiv">
+
+	<table width="100%" cellpadding="3" cellspacing="1" id="listTable">
+		<tbody>
+			<tr>
+				<th>商品类型名称</th>
+				<th>属性分组</th>
+				<th>属性数</th>
+				<th>状态</th>
+				<th>操作</th>
+			</tr>
+			
+
+    <?php foreach($types as $type):?>
+    <tr>
+    <td class="first-cell" style="background-color: rgb(255, 255, 255);"><span onclick="javascript:listTable.edit(this, 'edit_type_name', 2)"><?php echo $type['type_name'];?></span></td>
+    <td style="background-color: rgb(255, 255, 255);"></td>
+    <td align="right" style="background-color: rgb(255, 255, 255);"><?php echo $type['type_id'];?></td>
+    <td align="center" style="background-color: rgb(255, 255, 255);"><img src="images/yes.gif"></td>
+    <td align="center" style="background-color: rgb(255, 255, 255);">
+      <a href="<?php echo site_url('admin/attribute/index')?>" title="属性列表">属性列表</a> |
+      <a href="<?php echo site_url('admin/goodstype/edit')?>" title="编辑">编辑</a> |
+      <a href="javascript:;" onclick="listTable.remove(2, '删除商品类型将会清除该类型下的所有属性。\n您确定要删除选定的商品类型吗？')" title="移除">移除</a>
+    </td>
+  </tr>
+  <?php endforeach;?>
+    
+
+      <tr>
+      <td align="right" nowrap="true" colspan="6" style="background-color: rgb(255, 255, 255);">
+            <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+       <?php echo $pageinfo;?>
+      </div>
+      </td>
+    </tr>
+  </tbody></table>
+
+</div>
+<!-- end goods type list -->
+</form>
+
+<div id="footer">
+	版权所有 &copy; 2006-2013 传智播客 - PHP培训 - </div>
+</div>
+
+</body>
+</html>

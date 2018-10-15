@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    Options +FollowSymLinks
+    RewriteBase /
+     
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ cishop/index.php/$1
+ 
+</IfModule>
+ 
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /index.php
+</IfModule> 
+ 
+allow from all
